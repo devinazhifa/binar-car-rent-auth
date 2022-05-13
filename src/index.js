@@ -1,13 +1,13 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
-import minishopStore from './store/store'
+import store from './store/store'
 import App from './App'
 import './app.css'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={minishopStore}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>
