@@ -70,7 +70,7 @@ const Login = () => {
                 <div className='container'>
                     <div className='ml-4 mt-40 mb-6'>
                         <img src='././logo.png' className='mb-2'/>
-                        <p className='text-xl font-bold mb-2'>Welcome in Binar Car Rental</p>
+                        <p className='text-xl font-bold mb-2'>Welcome to Binar Car Rental</p>
                     </div>
                     { ( !loginStatus.success && loginStatus.message ) && <p className='text-sm text-red-500 italic'>{loginStatus.message}</p> }
                     <form onSubmit={ handleSubmit(formSubmitHandler) }>

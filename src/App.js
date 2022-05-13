@@ -11,10 +11,11 @@ import Login from "./Page/Login"
 import Home from "./Page/Home"
 import Logout from "./Page/Logout"
 import Dashboard from "./Page/Dashboard"
+import ProtectedRoute from "./Components/HOC/ProtectedRoute"
 
 const getUser = async () => {
   try {
-    const token = localStorage.getItem('minishopAccessToken')
+    const token = localStorage.getItem('binarAccessToken')
     const userData = jwtDecode(token)
     const res = await axios.get(`http://localhost:4000/users/${userData.sub}`)
     return {
@@ -52,15 +53,21 @@ function App() {
           return (
             <BrowserRouter>
               <div className="App">
-                <Routes>
-                  <Route path="/" element={<Login />}></Route>
-                  <Route path="/register" element={<Register />}></Route>
-                  <Route path="/home" element={<Home />}></Route>
-                  <Route path="/dashboard" element={<Dashboard />}></Route>
-                  <Route path="/logout" element={<Logout />}></Route>
-                </Routes>
+              <Routes>
+                {/* Public */}
+                <Route path="/" element={<Login />}></Route>
+                <Route path="/register" element={<Register />}></Route>
 
-                <Login setLogin={setLogin} />                
+                {/* Protected */}
+                <Route path="/" element={<ProtectedRoute />}>
+                  <Route path="/dashboard" element={<Dashboard />} />
+                </Route>
+                <Route path="/" element={<ProtectedRoute />}>
+                  <Route path="/home" element={<Home />} />
+                </Route>
+
+                <Route path="/logout" element={<Logout />}></Route>
+              </Routes>           
               </div>
             </BrowserRouter>
           );

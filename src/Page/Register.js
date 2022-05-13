@@ -52,7 +52,7 @@ const Register = () => {
                 <div className='container'>
                     <div className='ml-4 mt-40 mb-6'>
                         <img src='././logo.png' className='mb-2'/>
-                        <p className='text-xl font-bold mb-2'>Register Welcome in Binar Car Rental</p>
+                        <p className='text-xl font-bold mb-2'>Register - Binar Car Rental</p>
                     </div>
                     { ( !regStatus.success && regStatus.message ) && <p className='text-sm text-red-500 italic ml-4'>{regStatus.message}</p> }
                     <form onSubmit={ handleSubmit(formSubmitHandler) }>
