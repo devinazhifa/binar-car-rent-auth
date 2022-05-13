@@ -25,7 +25,6 @@ const Login = () => {
 
         axios.post('http://localhost:4000/login', postData)
         .then((res) => {
-            // memastikan bahwa token nya ada
             if (typeof res.data.accessToken !== "undefined") {
                 // menyimpan di local storage
                 localStorage.setItem("binarAccessToken", res.data.accessToken);
@@ -46,10 +45,8 @@ const Login = () => {
                 });
             }
         })
-        // unsuccess login attempt
 
         .catch((err) => {
-            //	console.log(err.response);
 
             setLoginStatus({
                 success: false,
